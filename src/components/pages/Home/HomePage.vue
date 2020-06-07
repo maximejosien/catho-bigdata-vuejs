@@ -114,17 +114,13 @@
         },
         beforeCreate() {
             const body = JSON.stringify({date: (new Date()).toISOString()});
-            const response = fetch('http://51.91.22.100:9200/store_visit/_doc', {
+            fetch('http://51.91.22.100:9200/store_visit/_doc', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
                 body: body
             });
-
-            response.then((element) => {
-                console.log(element);
-            })
         }
     }
 </script>
