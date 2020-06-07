@@ -13,6 +13,9 @@
         <button @click="buyCart" class="button">Acheter</button>
         <hr>
     </div>
+    <div v-if="isCartOrdered">
+        <h2>Merci pour votre commande</h2>
+    </div>
     <br/>
     <div>
         <h2>Les jeux du moment</h2>

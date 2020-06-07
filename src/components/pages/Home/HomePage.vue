@@ -47,6 +47,7 @@
                     },
                 ],
                 isCartSectionOpen: false,
+                isCartOrdered: false,
             }
         },
         methods: {
@@ -71,8 +72,14 @@
                     body: body
                 });
 
-                response.then((element) => {
-                    console.log(element);
+                response.then(() => {
+                    this.games.forEach((elem) => {
+                        if (elem.onCart) {
+                            elem.onCart = false;
+                        }
+                    })
+                    this.isCartSectionOpen = false;
+                    this.isCartOrdered = true;
                 })
             }
         },
