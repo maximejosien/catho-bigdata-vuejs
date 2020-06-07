@@ -5,4 +5,7 @@ Vue.config.productionTip = false
 
 new Vue({
   render: h => h(App),
+  router: {
+    base: 'catho-bigdata-vuejs'
+  }
 }).$mount('#app')
