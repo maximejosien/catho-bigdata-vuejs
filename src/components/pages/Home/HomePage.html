@@ -1,0 +1,31 @@
+<div id="home">
+    <div class="nav-bar">
+        <h1>Acheter vos jeux vidéo aux meilleurs prix</h1>
+        <button v-if="numberElementsOnCart === 0" class="button cart-not-completed">Mon Panier</button>
+        <button @click="openCartPage" v-else class="button cart-completed">Mon Panier</button>
+    </div>
+    <div v-if="isCartSectionOpen" class="cart">
+        <hr>
+        <h2>Mon panier</h2>
+        <div v-for="game in games" v-if="game.onCart">
+            <p>{{ game.name }}</p>
+        </div>
+        <button @click="buyCart" class="button">Acheter</button>
+        <hr>
+    </div>
+    <br/>
+    <div>
+        <h2>Les jeux du moment</h2>
+        <br/>
+        <div class="game-section">
+            <div v-for="game in games" class="game-block" v-bind:id="'game'+game.id">
+                <img v-bind:src="game.media">
+                <h3>{{ game.name }}</h3>
+                <p>{{ game.price }}€</p>
+                <button @click="onAddCart(game)" v-if="true === game.onCart" class="button onCart">Ajouter au panier
+                </button>
+                <button @click="onAddCart(game)" v-else class="button">Ajouter au panier</button>
+            </div>
+        </div>
+    </div>
+</div>
